@@ -54,7 +54,7 @@
                 <button class="btn btn-primary" type="submit">Place Bid</button>
                 {% if item.user.username == user.username %}
                 <a href="{% url 'end' item.id %}">
-                    <button class="btn btn-warning" type="button">End Auction</button>
+                    <button class="mybtn" style="background-color: maroon ; color:white" type="button">End Auction</button>
                 </a>
                 {% endif %}
             </div>

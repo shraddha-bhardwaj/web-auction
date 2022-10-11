@@ -6,7 +6,7 @@
 <div class="items-list">
     {% for obj in objects %}
     <a href="{% url 'details' obj.id %}">
-        <div class="item text-center" {% if obj.active != True %}style="background-color: rgba(255, 220, 220, 0.7);"
+        <div class="item text-center" {% if obj.active != True %}
             {% endif %}>
             <img src="{{ obj.imageUrl }}" alt="Loading...">
             <div class="details">
@@ -14,12 +14,12 @@
                 <h6>Price: $<strong>{{ obj.startBid }}</strong></h6>
                 <small>Created: <strong>{{ obj.date|date:"d-m-Y" }}</strong></small><br>
                 {% if obj.active %}
-                <span class="badge status--active">Active</span>
+                <span class="badge status--active"style="background-color:light green">Active</span>
                 {% else %}
-                <span class="badge status--inactive">Ended</span>
+                <span class="badge status--inactive"style="background-color:crimson">Ended</span>
                 {% endif %}
                 {% if obj in user.watchlist.all %}
-                <span class="badge status--watching">Watching</span>
+                <span class="badge status--watching" style="background-color: rgb(237, 192, 255);">Watching</span>
                 {% else %}
                 <span class="badge status--notwatching">Not Watching</span>
                 {% endif %}
