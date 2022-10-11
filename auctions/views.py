@@ -227,6 +227,18 @@ def end(request, itemId):
         messages.info(request, "You are not authorized to end this listing!")
     return HttpResponseRedirect(reverse("details", kwargs={"id": itemId}))
 
+# @login_required
+def delete(request,itemId):
+    auctionListing = AuctionListing.objects.get(id=itemId)
+    user = request.user
+    if auctionListing.user == user:
+        auctionListing.delete()
+        return HttpResponseRedirect(reverse("index"))
+    messages.info(request, "You are not authorized to delete this listing!")
+    return HttpResponseRedirect(reverse("details", kwargs={"id": itemId}))
+
+
+
 
 @login_required
 def watchlist(request):

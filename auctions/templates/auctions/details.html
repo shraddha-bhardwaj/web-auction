@@ -52,9 +52,15 @@
             </div>
             <div class="row justify-content-around">
                 <button class="btn btn-primary" type="submit">Place Bid</button>
+                <a href="{% url 'delete' item.id %}">
+                    <span  class="btn btn-danger">
+                        Delete
+                    </span>
+                </a>
                 {% if item.user.username == user.username %}
+
                 <a href="{% url 'end' item.id %}">
-                    <button class="mybtn" style="background-color: maroon ; color:white" type="button">End Auction</button>
+                    <span class="btn btn-danger mybtn" style="background-color: maroon ; color:white; cursor:pointer;">End Auction</span>
                 </a>
                 {% endif %}
             </div>
